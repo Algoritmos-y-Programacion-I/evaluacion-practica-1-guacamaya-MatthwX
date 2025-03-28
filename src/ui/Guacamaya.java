@@ -9,6 +9,8 @@ public class Guacamaya {
     // Arreglos de precios y unidades para todo el programa
     public static double[] precios;
     public static int[] unidades;
+    int referencias;
+    int cantVendida;
 
     public static void main(String[] args) {
 
@@ -57,7 +59,7 @@ public class Guacamaya {
                     solicitarDatos();
                     break;
                 case 2:
-                    System.out.println("\nLa cantidad total de unidades vendidas en el dia fue de: "+calcularTotalUnidadesVendidas());
+                    System.out.println("\nLa cantidad total de unidades vendidas en el dia fue de: "+ calcularTotalUnidadesVendidas());
                     break;
                 case 3:
                     System.out.println("\nEl precio promedio de las referencias de producto vendidas en el dia fue de: "+calcularPrecioPromedio());
@@ -92,28 +94,74 @@ public class Guacamaya {
      * pre: Los arreglos precios y unidades deben estar declarados
      * pos: Los arreglos precios y unidades quedan inicializados
      */
-    public static void establecerCantidadVendida() {
 
-        System.out.println("\nDigite el numero de referencias de producto diferentes vendidas en el dia ");
+   
+    
+    public static void establecerCantidadVendida() {
+        inicializarGlobales();
+
+        System.out.println("\nDigite el numero de referencias de producto diferentes vendidas en el dia: ");
         int referencias = reader.nextInt();
 
         precios = new double[referencias];
         unidades = new int[referencias];
-
+    
     }
+    /* 
+    * Descripcion: Este metodo se encarga de solicitar los datos al usuario acerca de la cantidad
+    de referencias.
+    * pre: Los arreglos precios y unidades deben declararse
+    * pos: Los arreglos precios y unidades quedan configurados
+    */
+    public static void solicitarDatos() {
+        inicializarGlobales(); 
+        
+	 	for (int i = 0; i < precios.length; i++) {
+            System.out.println("\n Ingrese el precio del producto " + (i + 1) + ":");
+            double precio = reader.nextDouble();
 
-    public static void solicitarDatos(){
+            // Solicita por el scanner un double que se llame precio
+
+            precios[i] = precio;
+
+		    
+
+        }  
+
+        for (int i = 0; i < unidades.length; i++) {
+                
+
+
+                // Haces lo mismo pero con int unidad
+                int unidad = reader.nextInt();
+                unidades[i] = unidad;
+		}
 
         
-     
     }
 
-    public static int calcularTotalUnidadesVendidas(){
-
+    /* 
+    * Descripcion: Este metodo se encarga de calcular el total de unidades
+    que se vendieron
+    * pre: Los arreglos precios y unidades ya deben estar declarados
+    * pos: Se muestra el valor total de las unidades vendidas
+    */
+    public static int calcularTotalUnidadesVendidas() {
+        /*
+        int suma = 0;
+		for (int numero : numeros) {
+		    suma += numero;
+		}
+        */
+		// return suma;
         return 0;
-
-
     }
+
+    /* 
+    * Descripcion: Este metodo se encarga de calcular el promedio del producto
+    * pre: El arreglo de producto debe estar declarado
+    * pos: Se muestra el promedio de ventas del producto
+    */
 
     public static double calcularPrecioPromedio(){
 
